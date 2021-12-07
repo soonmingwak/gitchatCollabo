@@ -41,14 +41,14 @@
 	<div class="row">
 		<div class="col-2">
 			<div class="list-group">
-				<a href="#" class="list-group-item list-group-item-action active"
+				<a href="#" class="list-group-item list-group-item-action"
 					aria-current="true"> 멤버 </a> <a href="#"
-					class="list-group-item list-group-item-action ">채팅 </a> 
-				<a href="#" class="list-group-item list-group-item-action">캘린더 </a> 
-				<a href="#" class="list-group-item list-group-item-action">할일 </a> 
-				<a href="#" class="list-group-item list-group-item-action">공지사항 </a> 
-				<a href="#" class="list-group-item list-group-item-action">근태관리 </a> 
-				<a href="#" class="list-group-item list-group-item-action">조직도 </a>
+					class="list-group-item list-group-item-action active"> 채팅 </a> 
+				<a href="#" class="list-group-item list-group-item-action"> 캘린더 </a> 
+				<a href="#" class="list-group-item list-group-item-action"> 할일 </a> 
+				<a href="#" class="list-group-item list-group-item-action"> 공지사항 </a> 
+				<a href="#" class="list-group-item list-group-item-action"> 근태관리 </a> 
+				<a href="#" class="list-group-item list-group-item-action"> 조직도 </a>
 			</div>
 		</div>
 	</div>

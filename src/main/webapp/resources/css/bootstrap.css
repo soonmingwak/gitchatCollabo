@@ -5568,7 +5568,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   padding: 0.75rem 1.25rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  height : 300px;
+  height : 128px;
 }
 
 .list-group-item:first-child {
