@@ -33,10 +33,10 @@
 						<form role="form" method="post" action="/loginAction">
 							<fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="아이디를 입력해주세요" name="user_id" type="text" autofocus>
+                                    <input class="form-control" placeholder="아이디를 입력해주세요" name="m_id" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="비밀번호를 입력해주세요" name="user_pw" type="password" value="">
+                                    <input class="form-control" placeholder="비밀번호를 입력해주세요" name="m_pw" type="password" value="">
                                     <a href = "findpw" >비밀번호를 잊어버리셨나요?</a>
                                 </div>
                                 <div class="checkbox">
@@ -50,7 +50,7 @@
                             </fieldset>
                             
                             <!-- csrf라는 이름으로 처리되는 csrf토큰 -->		
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
                         </form>
                     </div>
                 </div>
