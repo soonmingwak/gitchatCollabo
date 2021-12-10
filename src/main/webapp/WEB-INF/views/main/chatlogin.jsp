@@ -24,8 +24,9 @@
 	
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+         <div class=" col-md-3 col-md-offset-4"></div>
+            <div class=" col-md-5 col-md-offset-4">
+                <div class="jumbotron">
                     <div class="panel-heading">
                         <h3 class="panel-title" style="text-align:center;">로그인</h3>
                     </div>
@@ -44,9 +45,11 @@
                                         <input name="remember-me" type="checkbox">아이디 기억하기
                                     </label>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">로그인</a>
-                                <p style="text-align:center; margin-top:15px; ">계정이 필요하신가요?<a style=" color:Violet"; href = "joinAction" >가입하기</a></p>
+                              
+                                <div class="form-group">
+									<input type="submit" class="btn btn-primary form-control" value="로그인">
+								</div>
+                                <a style=" color:#ffffff"; href = "./join" class="btn btn-success form-control" >회원가입</a><p style="text-align:center; ">계정이 필요하신가요?</p>
                             </fieldset>
                             
                             <!-- csrf라는 이름으로 처리되는 csrf토큰 -->		
@@ -56,6 +59,7 @@
                 </div>
             </div>
         </div>
+        <div class=" col-md-3 col-md-offset-4"></div>
     </div>
   
     <!-- jQuery -->
@@ -75,6 +79,11 @@ $(".btn-success").on("click", function(e){
 	e.preventDefault();
 	$("form").submit();
 })
+
+$(document).ready(function(){
+	var msg = '${msg}';
+	if(msg != null && msg != '') alert(msg);
+});
 </script>
 
 </body>

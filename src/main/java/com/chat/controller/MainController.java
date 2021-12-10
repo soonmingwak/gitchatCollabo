@@ -1,16 +1,16 @@
 package com.chat.controller;
 
-import com.chat.vo.*;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.chat.service.MemberService;
+import com.chat.vo.Member;
 
 @Controller
 public class MainController {
@@ -28,7 +28,7 @@ public class MainController {
 		return "main/main";
 	}
 
-	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
+	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
 	public String loginAction(Member members,HttpSession session,RedirectAttributes ra) throws Exception{
 		
 		int result =MemberService.loginAction(members);
@@ -36,15 +36,32 @@ public class MainController {
 		
 		if(result ==0) {
 			session.setAttribute("m_id", members.getM_id());
+		
 			url="redirect:/main";
 		}
 		else {
 			ra.addFlashAttribute("msg","로그인정보가 일치하지 않습니다.");
-			url="redirect:/login";
+			url="redirect:/chatlogin";
 			
 		}
 		
 		return url;
+	}
+	
+	@RequestMapping(value="/logout",method = RequestMethod.GET)
+	
+	public String logout(HttpSession session) throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join(Model model) throws Exception {
+	
+		model.addAttribute("msg","반갑습니다.");
+		
+		return "main/join";
 	}
 
 	@RequestMapping(value = "/calender")

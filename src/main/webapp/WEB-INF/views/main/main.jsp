@@ -9,7 +9,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">회사이름</a>
+		<a class="navbar-brand" href="${path}">회사이름</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarText" aria-controls="navbarText"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -20,11 +20,12 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-expanded="false">
-						이름(조직) </a>
+						${m_id}<br>마이페이지 </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">로그아웃</a>
+						<a class="dropdown-item" href="${path }/info">내정보</a>
+						<a class="dropdown-item" href="${path }/logout">로그아웃</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">설정</a>
+						<a class="dropdown-item" href="${path}/set ">설정</a>
 					</div></li>
 			</ul>
 		</div>
@@ -33,9 +34,8 @@
 	<div class="row">
 		<div class="col-2">
 			<div class="list-group">
-				<a href="${path}/" class="list-group-item list-group-item-action active"
-					aria-current="true"> 멤버 </a> <a href="${path}/chat"
-					class="list-group-item list-group-item-action ">채팅 </a> 
+				<a href="${path}/main" class="list-group-item list-group-item-action active" aria-current="true"> 멤버 </a> 
+				<a href="${path}/chat" class="list-group-item list-group-item-action ">채팅 </a> 
 				<a href="${path}/calender" class="list-group-item list-group-item-action">캘린더 </a> 
 				<a href="${path}/todo" class="list-group-item list-group-item-action">할일 </a> 
 				<a href="${path}/notice" class="list-group-item list-group-item-action">공지사항 </a> 
