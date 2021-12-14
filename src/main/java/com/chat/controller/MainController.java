@@ -14,12 +14,14 @@ import com.chat.vo.Member;
 
 @Controller
 public class MainController {
+	
 
 	@Inject
 	MemberService MemberService;
 
 	@RequestMapping(value = "/")
 	public String chatlogin() {
+		
 		return "main/chatlogin";
 	}
 	
@@ -63,6 +65,22 @@ public class MainController {
 		
 		return "main/join";
 	}
+	@RequestMapping(value = "/joinAction", method =RequestMethod.POST)
+	public String joinAction(Member members,String addr1, String addr2, String addr3) throws Exception{
+		members.setM_adr(addr1+" "+addr2+" " +addr3);
+		MemberService.joinAction(members);
+		
+		return "redirect:/";
+	}
+	@RequestMapping(value = "/findid")
+	public String findid() {
+		return "main/findid";
+	}
+
+	@RequestMapping(value = "/findpw")
+	public String findpw() {
+		return "main/findpw";
+	}
 
 	@RequestMapping(value = "/calender")
 	public String calender() {
@@ -73,6 +91,7 @@ public class MainController {
 	public String notice() {
 		return "main/notice";
 	}
+	
 
 	@RequestMapping(value = "/att")
 	public String att() {

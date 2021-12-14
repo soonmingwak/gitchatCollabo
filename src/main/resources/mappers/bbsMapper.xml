@@ -12,5 +12,16 @@
 		AND    m_pw = #{m_pw}
 	</select>
 		
+	<!-- 회원가입 SQL -->
+	<insert id="join" >
+		INSERT INTO MEMBER
+		VALUES(
+				#{m_id},#{m_pw},
+				#{m_name},#{m_aff},
+				#{m_gender},#{m_email},
+				#{m_tel},#{m_adr}
+				)
+	</insert>
+		
 </mapper>
 

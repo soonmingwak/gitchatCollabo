@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="비밀번호를 입력해주세요" name="m_pw" type="password" value="">
-                                    <a href = "findpw" >비밀번호를 잊어버리셨나요?</a>
+                                    <a href = "${path }/findpw" >비밀번호를 잊어버리셨나요?</a>
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -49,7 +49,7 @@
                                 <div class="form-group">
 									<input type="submit" class="btn btn-primary form-control" value="로그인">
 								</div>
-                                <a style=" color:#ffffff"; href = "./join" class="btn btn-success form-control" >회원가입</a><p style="text-align:center; ">계정이 필요하신가요?</p>
+                                <a style=" color:#ffffff"; href = "${path }/join" class="btn btn-success form-control" >회원가입</a><p style="text-align:center; ">계정이 필요하신가요?</p>
                             </fieldset>
                             
                             <!-- csrf라는 이름으로 처리되는 csrf토큰 -->		

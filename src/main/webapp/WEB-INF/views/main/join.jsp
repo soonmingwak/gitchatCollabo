@@ -32,7 +32,7 @@
 						<!-- 비밀번호 입력칸 -->
 						<div class="form-group">
 				 			<span style="font-family :Fantasy;">비밀번호 :</span> 
-				 			<input type="text" class="form-control" autocomplete="off" name="m_pw2" >
+				 			<input type="text" class="form-control" autocomplete="off" name="m_pw" >
 						</div>
 						<!--  비밀번호 확인 -->
 						<div class="form-group">
