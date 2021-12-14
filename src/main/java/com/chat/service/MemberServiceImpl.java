@@ -23,4 +23,10 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void joinAction(Member members) throws Exception {
+		dao.join(members);
+		
+	}
+
 }
