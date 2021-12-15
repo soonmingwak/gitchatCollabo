@@ -26,5 +26,10 @@ public class MemberDAOImplmpl implements MemberDAO {
 		sqlSession.insert(SESSION+".join",members);
 		
 	}
+	@Override
+	public Member viewMember(String m_id) throws Exception {
+		
+		return sqlSession.selectOne(SESSION+"viewMember",m_id);
+	}
 
 }

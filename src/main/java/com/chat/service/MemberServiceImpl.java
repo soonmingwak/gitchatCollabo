@@ -29,4 +29,10 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public Member viewMember(String m_id) throws Exception {
+		
+		return dao.viewMember(m_id);
+	}
+
 }

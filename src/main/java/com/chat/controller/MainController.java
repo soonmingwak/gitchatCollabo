@@ -3,6 +3,8 @@ package com.chat.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,8 @@ import com.chat.vo.Member;
 @Controller
 public class MainController {
 	
-
+	
+	
 	@Inject
 	MemberService MemberService;
 
@@ -81,6 +84,17 @@ public class MainController {
 	public String findpw() {
 		return "main/findpw";
 	}
+	
+	@RequestMapping(value = "/info")
+	public String info(String m_id, Model model) throws Exception {
+		
+		model.addAttribute("member",MemberService.viewMember(m_id));
+		
+		
+		
+		return "main/info";
+	}
+	
 
 	@RequestMapping(value = "/calender")
 	public String calender() {
