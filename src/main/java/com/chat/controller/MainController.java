@@ -3,8 +3,6 @@ package com.chat.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +35,7 @@ public class MainController {
 	public String loginAction(Member members,HttpSession session,RedirectAttributes ra) throws Exception{
 		
 		int result =MemberService.loginAction(members);
+		
 		String url =null;
 		
 		if(result ==0) {
@@ -85,13 +84,21 @@ public class MainController {
 		return "main/findpw";
 	}
 	
-	@RequestMapping(value = "/info")
-	public String info(String m_id, Model model) throws Exception {
+	
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info(String m_id, Model model, HttpSession session, Member members) throws Exception {
+		/*
+		String id = (String)session.getAttribute("m_id");
+	
 		
-		model.addAttribute("member",MemberService.viewMember(m_id));
+		Member vo = MemberService.readMember(m_id);
+
+		//정보저장 후 페이지 이동
+		model.addAttribute("memVO", vo);
 		
-		
-		
+		*/
+		members = MemberService.readMember(m_id);
+		model.addAttribute("member", members);
 		return "main/info";
 	}
 	

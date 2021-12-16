@@ -35,4 +35,20 @@ public class MemberServiceImpl implements MemberService {
 		return dao.viewMember(m_id);
 	}
 
+	@Override
+	public Member readMember(String m_id) {
+		System.out.println("½ÇÇà");
+		Member vo = null;
+		
+		try {
+			vo = dao.readMember(m_id);
+			System.out.println(vo.getM_id());
+			System.out.println(vo.getM_pw());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+
 }

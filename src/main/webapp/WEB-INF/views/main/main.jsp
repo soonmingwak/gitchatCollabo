@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<%
+String id = (String) session.getAttribute("m_id");
+if(id == null) response.sendRedirect("/main/chatlogin");
+%>
+
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="${path}">회사이름</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"

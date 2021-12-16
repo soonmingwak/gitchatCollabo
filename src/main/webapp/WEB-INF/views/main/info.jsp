@@ -20,7 +20,7 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-expanded="false">
-						${m_id}<br>마이페이지 </a>
+						${member.m_id }<br>마이페이지 </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="${path }/info">내정보</a>
 						<a class="dropdown-item" href="${path }/logout">로그아웃</a>
@@ -33,14 +33,14 @@
 	<div class="container">
 		<div class="row">
 		<h2>내정보 보기</h2>
-		<form name "form1" method = "POST">
+		
 			<table border="1" width ="400px">
 				<tr>
 					<td>아이디</td>
-					<td><input name="m_id" value ="${member.m_id }" readonly>
+					<td>${member.m_id}" </td>
 				</tr>
 			</table>
-		</form>
+	
 	
 		</div>
 	</div>
