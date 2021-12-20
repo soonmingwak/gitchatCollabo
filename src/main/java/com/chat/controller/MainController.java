@@ -1,6 +1,7 @@
 package com.chat.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -60,7 +61,7 @@ public class MainController {
 		
 		return "redirect:/";
 	}
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	@RequestMapping(value = "/join")
 	public String join(Model model) throws Exception {
 	
 		model.addAttribute("msg","반갑습니다.");
@@ -86,22 +87,27 @@ public class MainController {
 	
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public String info(String m_id, Model model, HttpSession session, Member members) throws Exception {
-		/*
+	public String info(Model model, HttpSession session, Member members) throws Exception {
+		
 		String id = (String)session.getAttribute("m_id");
 	
 		
-		Member vo = MemberService.readMember(m_id);
-
-		//정보저장 후 페이지 이동
-		model.addAttribute("memVO", vo);
 		
-		*/
-		members = MemberService.readMember(m_id);
+		members = MemberService.readMember(id);
 		model.addAttribute("member", members);
-		return "main/info";
-	}
+		
 	
+		return "main/info";
+		
+		
+		
+	}
+	@RequestMapping(value = "/infochange")
+	public String infochange(HttpSession session) throws Exception {
+		String id = (String)session.getAttribute("m_id");
+		
+		return "main/infochange";
+	}
 
 	@RequestMapping(value = "/calender")
 	public String calender() {

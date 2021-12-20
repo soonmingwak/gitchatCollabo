@@ -32,14 +32,55 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-		<h2>내정보 보기</h2>
 		
+		<form method="POST" action="/infochange">
 			<table border="1" width ="400px">
+			<div class="list">
+ 				<h2>내 정보 보기</h2>
+  				<hr class="listhr"></hr>
+		
+				<tbody>
+				
 				<tr>
-					<td>아이디</td>
-					<td>${member.m_id}" </td>
+					<td style="width: 30%;">아이디</td>
+					<td>${member.m_id}</td>
 				</tr>
+				<tr>
+					<td style="width: 30%;">비밀번호</td>
+					<td>${member.m_pw}</td>
+				</tr>
+				<tr>
+					<td style="width: 30%;">이름</td>
+					<td>${member.m_name}</td>
+				</tr>
+				<tr>
+					<td style="width: 30%;">소속</td>
+					<td>${member.m_aff}</td>
+					
+				</tr>
+				<tr>
+					<td style="width: 30%;">성별</td>
+					<td>${member.m_gender}</td>
+				</tr>
+				<tr>
+					<td style="width: 30%;">이메일</td>
+					<td>${member.m_email}</td>
+				</tr>
+				<tr>
+					<td style="width: 30%;">전화번호</td>
+					<td>${member.m_tel}</td>
+				</tr>
+				<tr>
+					<td style="width: 30%;">주소</td>
+					<td><span>${member.m_adr}</span></td>
+				</tr>
+				</tbody>
 			</table>
+			
+			<c:if test="${m_id eq member.m_id }">
+				<a href="./infochange?m_id=${member.m_id }" class="btn btn-success">수정</a>
+			</c:if>
+		</form>
 	
 	
 		</div>
