@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="비밀번호를 입력해주세요" name="m_pw" type="password" value="">
-                                    <a href = "${path }/findpw" >비밀번호를 잊어버리셨나요?</a>
+                                   <a href = "${path }/findid">아이디 ,</a> <a href = "${path }/findpw" >비밀번호를 잊어버리셨나요?</a>
                                 </div>
                                 <div class="checkbox">
                                     <label>

@@ -43,7 +43,18 @@
 				<a href="${path}/orgchart" class="list-group-item list-group-item-action">조직도 </a>
 			</div>
 		</div>
+		
+		
+		<div class="col-10">
+		
+			
+			
+		</div>
 	</div>
+	
+	
+	
+	
 	<script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script

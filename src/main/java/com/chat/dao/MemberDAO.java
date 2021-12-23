@@ -9,4 +9,5 @@ public interface MemberDAO {
 	public Member viewMember(String m_id) throws Exception;
 	public Member readMember(String userid) throws Exception;
 	public Member readMemberWithIDPW(String userid,String userpw) throws Exception;
+	public Member findId(String m_id, String m_pw) throws Exception;
 }

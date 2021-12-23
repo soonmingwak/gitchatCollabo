@@ -37,18 +37,23 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member readMember(String m_id) {
-		System.out.println("½ÇÇà");
+		
 		Member mb = null;
 		
 		try {
 			mb = dao.readMember(m_id);
-			System.out.println(mb.getM_id());
-			System.out.println(mb.getM_pw());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return mb;
+	}
+
+	@Override
+	public Member findId(String m_id, String m_email) throws Exception {
+		dao.findId(m_id,m_email);
+		return null;
 	}
 
 }

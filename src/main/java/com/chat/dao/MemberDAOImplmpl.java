@@ -64,4 +64,9 @@ public class MemberDAOImplmpl implements MemberDAO {
 		// * 객체(VO) 안에 저장이 안되는 정보의 경우 Map을 사용
 		// Map은 key-value형태 : 이때 key값은 sql구문의 #{ㅇㅇㅇ} 이름과 같아야함
 	}
+	@Override
+	public Member findId(String m_id, String m_pw) throws Exception {
+		
+		return null;
+	}
 }

@@ -76,7 +76,8 @@ public class MainController {
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/findid")
-	public String findid() {
+	public String findid(Member members) {
+	//	MemberService.fidId(String m_name, String m_email);
 		return "main/findid";
 	}
 

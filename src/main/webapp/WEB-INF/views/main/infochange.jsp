@@ -9,7 +9,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="${path}">회사이름</a>
+		<a class="navbar-brand" href="${path}/main">회사이름</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarText" aria-controls="navbarText"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -31,44 +31,43 @@
 		</div>
 	</nav>
 <div class="container">
-	<div class="row">
+	<div class="jumbotron">
  <h2>내 정보</h2>
-  <hr class="listhr"></hr>
-  		 <form name="form1" method="get" class="form">
-			<table class="usertable" cellpadding="0" cellspacing="0" width= 700px;>
+  		 <form name="form1" method="get" class="form-group">
+			<table class="usertable"  width= 700px;>
 				<tr class="infotabname" height=30px>
-					<td class="column1">아이디</td>
-					<td class="con"><input type="text" name="m_id" size="10"  value="${m_id}" readonly /></td>
+					<td  >아이디</td>
+					<td ><input type="text" name="m_id" size="10"  value="${m_id}" readonly /></td>
         		</tr>
-        		<tr class="infotab" height=30px>
-          			<td class="column1">비밀번호</td>
-          			<td class="con"><input type="password" name="m_pw" size="10" value="${m_pw}"/></td>
+        		<tr  height=30px>
+          			<td>비밀번호</td>
+          			<td ><input type="password" name="m_pw" size="10" value="${m_pw}"/></td>
         		</tr>
-        		<tr class="infotab" height=30px>
-          			<td class="column1">이름</td>
-          			<td class="con"><input type="text" name="m_name" size="10"  value="${m.name}"/></td>
+        		<tr  height=30px>
+          			<td >이름</td>
+          			<td ><input type="text" name="m_name" size="10"  value="${m_name}"/></td>
         		</tr>
-        		<tr class="infotab" height=30px>
-          			<td class="column1">소속</td>
-          			<td class="con"><input type="text" name="m_aff" size="10" value="${m.aff}"/></td>
+        		<tr  height=30px>
+          			<td ">소속</td>
+          			<td ><input type="text" name="m_aff" size="10" value="${m_aff}"/></td>
         		</tr>
-         		<tr class="infotab" height=30px>
-          			<td class="column1">이메일</td>
-          			<td class="con"><input type="email" name="m_email" size="15"  value="${m.email}"/></td>
+         		<tr  height=30px>
+          			<td >이메일</td>
+          			<td ><input type="email" name="m_email" size="15"  value="${m_email}"/></td>
         		</tr>
-         		<tr class="infotab" height=30px>
-          			<td class="column1">전화번호</td>
-          			<td class="con"><input type="number" name="m_tel" size="10"  value="${m.tel}"/></td>
+         		<tr  height=30px>
+          			<td >전화번호</td>
+          			<td ><input type="text" name="m_tel" size="10"  value="${m_tel}"/></td>
         		</tr>
-         		<tr class="infotab" height=30px>
-          			<td class="column1">성별</td>
+         		<tr  height=30px>
+          			<td >성별</td>
           			
-          			<td><input type="checkbox" id="checkb_btn1" name="m_gender" value="${member.gender}">남</td>
-          			<td><input type="checkbox" id="checkb_btn1" name="m_gender" value="${member.gender}">여</td>
+          			<td><input type="radio" id="checkb_btn1" name="m_gender" value="${member.gender}">남
+          			<input type="radio" id="checkb_btn1" name="m_gender" value="${member.gender}">여</td>
         		</tr>
-        		<tr class="infotab" height=30px>
-          			<td class="column1">주소</td>
-          			<td class="con"><input type="text" name="m_adr" size="40"  value="${m.adr}"/></td>
+        		<tr  height=30px>
+          			<td >주소</td>
+          			<td ><input type="text" name="m_adr" size="40"  value="${m.adr}"/></td>
         		</tr>
         		
         		

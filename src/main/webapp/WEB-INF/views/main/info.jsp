@@ -9,7 +9,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="${path}">회사이름</a>
+		<a class="navbar-brand" href="${path}/mainz">회사이름</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarText" aria-controls="navbarText"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -31,54 +31,57 @@
 		</div>
 	</nav>
 	<div class="container">
-		<div class="row">
+		<div class="jumbotron" >
 		
 		<form method="POST" action="/infochange">
 			<table border="1" width ="400px">
-			<div class="list">
+			
  				<h2>내 정보 보기</h2>
-  				<hr class="listhr"></hr>
+  				<hr width = "400px" align="left"></hr>
 		
 				<tbody>
 				
-				<tr>
-					<td style="width: 30%;">아이디</td>
-					<td>${member.m_id}</td>
+				<tr  height=30px>
+					<td class="column1">아이디</td>
+					<td class="con">${member.m_id}</td>
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">비밀번호</td>
 					<td>${member.m_pw}</td>
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">이름</td>
 					<td>${member.m_name}</td>
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">소속</td>
 					<td>${member.m_aff}</td>
 					
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">성별</td>
 					<td>${member.m_gender}</td>
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">이메일</td>
 					<td>${member.m_email}</td>
 				</tr>
-				<tr>
-					<td style="width: 30%;">전화번호</td>
+				<tr  height=30px>
+					<td style="width: 30%;"  >전화번호</td>
 					<td>${member.m_tel}</td>
 				</tr>
-				<tr>
+				<tr  height=30px>
 					<td style="width: 30%;">주소</td>
 					<td><span>${member.m_adr}</span></td>
 				</tr>
 				</tbody>
+				
 			</table>
 			
 			<c:if test="${m_id eq member.m_id }">
-				<a href="./infochange?m_id=${member.m_id }" class="btn btn-success">수정</a>
+			<tr style="margin-top : 15px;">
+				<td ><a href="./infochange?m_id=${member.m_id }" class="btn btn-success">수정</a></td>
+			</tr>
 			</c:if>
 		</form>
 	

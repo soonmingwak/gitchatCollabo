@@ -8,4 +8,5 @@ public interface MemberService {
 	public void joinAction(Member members) throws Exception;
 	public Member viewMember(String m_id) throws Exception;
 	public Member readMember(String id);
+	public Member findId(String m_id, String m_email) throws Exception;
 }

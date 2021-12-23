@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.chat.vo.TodoVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,9 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
 	<script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script
