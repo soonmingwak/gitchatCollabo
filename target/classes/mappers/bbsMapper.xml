@@ -22,6 +22,32 @@
 				#{m_tel},#{m_adr}
 				)
 	</insert>
+	
+	<!-- 회원정보보기 -->
+	<select id="viewMember" resultType="Member">
+		SELECT
+			m_id AS m_id,
+			m_pw AS m_pw,
+			m_name AS m_name,
+			m_aff AS m_aff,
+			m_gender AS m_gender,
+			m_email AS m_email,
+			m_tel AS m_tel,
+			m_adr AS m_adr
+			FORM MEMBER
+			WHERE m_id = #{m_id}
+			
+			
+
+	</select>
+	
+	<select id="readMember" resultType="Member">
+		select *
+		from MEMBER
+		where m_id=#{m_id}
+	</select>
 		
+	
+
 </mapper>
 

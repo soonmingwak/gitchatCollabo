@@ -1,6 +1,7 @@
 package com.chat.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,8 @@ import com.chat.vo.Member;
 @Controller
 public class MainController {
 	
-
+	
+	
 	@Inject
 	MemberService MemberService;
 
@@ -34,6 +36,7 @@ public class MainController {
 	public String loginAction(Member members,HttpSession session,RedirectAttributes ra) throws Exception{
 		
 		int result =MemberService.loginAction(members);
+		
 		String url =null;
 		
 		if(result ==0) {
@@ -58,7 +61,7 @@ public class MainController {
 		
 		return "redirect:/";
 	}
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	@RequestMapping(value = "/join")
 	public String join(Model model) throws Exception {
 	
 		model.addAttribute("msg","¹Ý°©½À´Ï´Ù.");
@@ -73,13 +76,38 @@ public class MainController {
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/findid")
-	public String findid() {
+	public String findid(Member members) {
+	//	MemberService.fidId(String m_name, String m_email);
 		return "main/findid";
 	}
 
 	@RequestMapping(value = "/findpw")
 	public String findpw() {
 		return "main/findpw";
+	}
+	
+	
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String info(Model model, HttpSession session, Member members) throws Exception {
+		
+		String id = (String)session.getAttribute("m_id");
+	
+		
+		
+		members = MemberService.readMember(id);
+		model.addAttribute("member", members);
+		
+	
+		return "main/info";
+		
+		
+		
+	}
+	@RequestMapping(value = "/infochange")
+	public String infochange(HttpSession session) throws Exception {
+		String id = (String)session.getAttribute("m_id");
+		
+		return "main/infochange";
 	}
 
 	@RequestMapping(value = "/calender")
