@@ -45,7 +45,7 @@ public class MainController {
 			url="redirect:/main";
 		}
 		else {
-			ra.addFlashAttribute("msg","·Î±×ÀÎÁ¤º¸°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			ra.addFlashAttribute("msg","ë¡œê·¸ì¸ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤..");
 			url="redirect:/chatlogin";
 			
 		}
@@ -64,13 +64,13 @@ public class MainController {
 	@RequestMapping(value = "/join")
 	public String join(Model model) throws Exception {
 	
-		model.addAttribute("msg","¹İ°©½À´Ï´Ù.");
+		model.addAttribute("msg","ë°˜ê°‘ìŠµë‹ˆë‹¤.");
 		
 		return "main/join";
 	}
 	@RequestMapping(value = "/joinAction", method =RequestMethod.POST)
 	public String joinAction(Member members,String addr1, String addr2, String addr3) throws Exception{
-		members.setM_adr(addr1+" "+addr2+" " +addr3);
+		members.setM_adr(addr1+" "+addr2+" "+addr3);
 		MemberService.joinAction(members);
 		
 		return "redirect:/";
@@ -108,6 +108,13 @@ public class MainController {
 		String id = (String)session.getAttribute("m_id");
 		
 		return "main/infochange";
+	}
+	@RequestMapping(value = "/changeAction", method = RequestMethod.POST)
+	public String changeAction(HttpSession session, Member member) throws Exception{
+		MemberService.infoChange(member);
+		return "redirect:/main/infochange?m_id="+member.getM_id();
+		//session.setAttribute("member", MemberService.infoChange(member));
+		//return "redirect:/main/infochange?m_id="+member.getM_id();
 	}
 
 	@RequestMapping(value = "/calender")

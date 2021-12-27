@@ -33,9 +33,9 @@
 <div class="container">
 	<div class="jumbotron">
  <h2>내 정보</h2>
-  		 <form name="form1" method="get" class="form-group">
-			<table class="usertable"  width= 700px;>
-				<tr class="infotabname" height=30px>
+  		 <form name="form1" method="POST" class="form-group" action="/changeAction">
+			<table  width= 700px;>
+				<tr  height=30px>
 					<td  >아이디</td>
 					<td ><input type="text" name="m_id" size="10"  value="${m_id}" readonly /></td>
         		</tr>
@@ -48,7 +48,7 @@
           			<td ><input type="text" name="m_name" size="10"  value="${m_name}"/></td>
         		</tr>
         		<tr  height=30px>
-          			<td ">소속</td>
+          			<td >소속</td>
           			<td ><input type="text" name="m_aff" size="10" value="${m_aff}"/></td>
         		</tr>
          		<tr  height=30px>
@@ -72,12 +72,14 @@
         		
         		
         	</table>
-		</form>
-    <div class="buttonpa">
-     <input type="submit" class="btn btn-success" value="수정">
-      <a class="btn btn-warning" href="./infochange?m_id=${member.m_id }">취소</a>
-    </div>
-    </div>
+		
+    		<div >
+    			 <input type="submit" class="btn btn-success"  value="수정" id  ="btnUpdate">
+     			 <a class="btn btn-warning">취소</a>
+      
+   			 </div>
+    	</form>
+	</div>
 </div>
 <br>
 	

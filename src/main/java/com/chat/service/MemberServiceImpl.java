@@ -56,4 +56,10 @@ public class MemberServiceImpl implements MemberService {
 		return null;
 	}
 
+	@Override
+	public void infoChange(Member member) throws Exception {
+		dao.changeInfo(member);
+		
+	}
+
 }

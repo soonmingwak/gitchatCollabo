@@ -33,7 +33,7 @@
 	<div class="container">
 		<div class="jumbotron" >
 		
-		<form method="POST" action="/infochange">
+	
 			<table border="1" width ="400px">
 			
  				<h2>내 정보 보기</h2>
@@ -46,7 +46,7 @@
 					<td class="con">${member.m_id}</td>
 				</tr>
 				<tr  height=30px>
-					<td style="width: 30%;">비밀번호</td>
+					<td style="width: 30%;"> 비밀번호</td>
 					<td>${member.m_pw}</td>
 				</tr>
 				<tr  height=30px>
@@ -83,7 +83,7 @@
 				<td ><a href="./infochange?m_id=${member.m_id }" class="btn btn-success">수정</a></td>
 			</tr>
 			</c:if>
-		</form>
+		 
 	
 	
 		</div>
