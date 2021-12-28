@@ -57,7 +57,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void infoChange(Member member) throws Exception {
+	public void changeInfo(Member member) throws Exception {
+		System.out.println("member="+member.getM_adr());
 		dao.changeInfo(member);
 		
 	}

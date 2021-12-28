@@ -64,6 +64,9 @@ public class MemberDAOImplmpl implements MemberDAO {
 	@Override
 	public void changeInfo(Member member) throws Exception {
 		
-		sqlSession.update(SESSION+"changeInfo",member);
+		System.out.println("member1 : "+member.getM_adr());
+		sqlSession.update(SESSION+".changeInfo",member);
+		
+		System.out.println("member2 : "+member.getM_adr());
 	}
 }

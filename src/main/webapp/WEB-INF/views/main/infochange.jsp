@@ -37,46 +37,54 @@
 			<table  width= 700px;>
 				<tr  height=30px>
 					<td  >아이디</td>
-					<td ><input type="text" name="m_id" size="10"  value="${m_id}" readonly /></td>
+					<td ><input type="text" id="m_id" name="m_id" size="10"  value="${m_id}" readonly /></td>
         		</tr>
         		<tr  height=30px>
           			<td>비밀번호</td>
-          			<td ><input type="password" name="m_pw" size="10" value="${m_pw}"/></td>
+          			<td ><input type="password" id="m_pw" name="m_pw" size="10" /></td>
         		</tr>
         		<tr  height=30px>
           			<td >이름</td>
-          			<td ><input type="text" name="m_name" size="10"  value="${m_name}"/></td>
+          			<td ><input type="text" id="m_name" name="m_name" size="10" placeholder = "변경시입력" /></td>
         		</tr>
         		<tr  height=30px>
           			<td >소속</td>
-          			<td ><input type="text" name="m_aff" size="10" value="${m_aff}"/></td>
+          			<td ><input type="text" id="m_aff" name="m_aff" size="10" placeholder = "변경시입력" /></td>
         		</tr>
          		<tr  height=30px>
           			<td >이메일</td>
-          			<td ><input type="email" name="m_email" size="15"  value="${m_email}"/></td>
+          			<td ><input type="email" id="m_email" name="m_email" size="15" placeholder = "변경시입력" /></td>
         		</tr>
          		<tr  height=30px>
           			<td >전화번호</td>
-          			<td ><input type="text" name="m_tel" size="10"  value="${m_tel}"/></td>
+          			<td ><input type="text" id="m_tel" name="m_tel" size="10"  placeholder = "변경시입력" /></td>
         		</tr>
          		<tr  height=30px>
           			<td >성별</td>
           			
-          			<td><input type="radio" id="checkb_btn1" name="m_gender" value="${member.gender}">남
-          			<input type="radio" id="checkb_btn1" name="m_gender" value="${member.gender}">여</td>
+          			<td><input type="radio" id="m_gender" name="m_gender" >남
+          			<input type="radio" id="m_gender" name="m_gender" >여</td>
+        		</tr>
+        		<tr  height=10px>
+          			<td >우편번호</td>
+          			<td ><input type="text" name="m_adr1" id="m_adr1" size="20" /></td>
         		</tr>
         		<tr  height=30px>
           			<td >주소</td>
-          			<td ><input type="text" name="m_adr" size="40"  value="${m.adr}"/></td>
+          			<td ><input type="text" name="m_adr2" id="m_adr2" size="40" /></td>
+        		</tr>
+        		<tr  height=30px>
+          			<td >상세주소</td>
+          			<td ><input type="text" name="m_adr3" id="m_adr3" size="40" /></td>
         		</tr>
         		
         		
         	</table>
 		
     		<div >
-    			 <input type="submit" class="btn btn-success"  value="수정" id  ="btnUpdate">
+    			 <input type="submit" class="btn btn-success"  value="수정" >
      			 <a class="btn btn-warning">취소</a>
-      
+				      
    			 </div>
     	</form>
 	</div>

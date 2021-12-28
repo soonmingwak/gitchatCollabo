@@ -41,7 +41,7 @@ public class MainController {
 		
 		if(result ==0) {
 			session.setAttribute("m_id", members.getM_id());
-		
+			
 			url="redirect:/main";
 		}
 		else {
@@ -57,6 +57,7 @@ public class MainController {
 	
 	public String logout(HttpSession session) throws Exception{
 		
+		
 		session.invalidate();
 		
 		return "redirect:/";
@@ -64,13 +65,13 @@ public class MainController {
 	@RequestMapping(value = "/join")
 	public String join(Model model) throws Exception {
 	
-		model.addAttribute("msg","반갑습니다.");
+		
 		
 		return "main/join";
 	}
 	@RequestMapping(value = "/joinAction", method =RequestMethod.POST)
-	public String joinAction(Member members,String addr1, String addr2, String addr3) throws Exception{
-		members.setM_adr(addr1+" "+addr2+" "+addr3);
+	public String joinAction(Member members,String m_addr1, String m_addr2, String m_addr3) throws Exception{
+		members.setM_adr(m_addr1+" "+m_addr2+" "+m_addr3);
 		MemberService.joinAction(members);
 		
 		return "redirect:/";
@@ -104,15 +105,25 @@ public class MainController {
 		
 	}
 	@RequestMapping(value = "/infochange")
-	public String infochange(HttpSession session) throws Exception {
+	public String infochange(HttpSession session ) throws Exception {
+		
 		String id = (String)session.getAttribute("m_id");
 		
 		return "main/infochange";
 	}
 	@RequestMapping(value = "/changeAction", method = RequestMethod.POST)
-	public String changeAction(HttpSession session, Member member) throws Exception{
-		MemberService.infoChange(member);
-		return "redirect:/main/infochange?m_id="+member.getM_id();
+	public String changeAction(HttpSession session, Member members, String m_adr1, String m_adr2, String m_adr3) throws Exception{
+		members.setM_adr(m_adr1+" "+m_adr2+" "+m_adr3);
+		System.out.println(m_adr1);
+		System.out.println(m_adr2);
+		System.out.println(m_adr3);
+		System.out.println(members.getM_adr());
+		System.out.println(members.getM_name());
+		MemberService.changeInfo(members);
+		session.invalidate();
+		return "redirect:/";
+//		MemberService.infoChange(member);
+//		return "redirect:/main/infochange?m_id="+member.getM_id();
 		//session.setAttribute("member", MemberService.infoChange(member));
 		//return "redirect:/main/infochange?m_id="+member.getM_id();
 	}
