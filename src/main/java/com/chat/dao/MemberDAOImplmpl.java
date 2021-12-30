@@ -56,11 +56,7 @@ public class MemberDAOImplmpl implements MemberDAO {
 		
 
 	}
-	@Override
-	public Member findId(String m_id, String m_pw) throws Exception {
-		
-		return null;
-	}
+	
 	@Override
 	public void changeInfo(Member member) throws Exception {
 		
@@ -69,4 +65,16 @@ public class MemberDAOImplmpl implements MemberDAO {
 		
 		System.out.println("member2 : "+member.getM_adr());
 	}
+	@Override
+	public String find_id(Member member) throws Exception {
+	
+		return sqlSession.selectOne(SESSION+".find_id",member);
+	}
+	
+	@Override
+	public String find_id2(Member member) throws Exception {
+		
+		return sqlSession.selectOne(SESSION+".find_id2",member);
+	}
+	
 }

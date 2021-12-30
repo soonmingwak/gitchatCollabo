@@ -58,7 +58,21 @@
 	
 		
 	</update>
-		
+	
+	<!--  아이디찾기 -->
+	<select id="find_id" resultType="String">
+		select m_id
+		from MEMBER 
+		WHERE
+		 m_tel=#{m_tel} and m_name=#{m_name}
+	</select>
+		<!--  아이디찾기 -->
+	<select id="find_id2" resultType="String">
+		select m_id
+		from MEMBER 
+		WHERE
+		 m_email=#{m_email} and m_name=#{m_name}
+	</select>
 	
 
 </mapper>

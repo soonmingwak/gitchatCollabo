@@ -1,6 +1,9 @@
 package com.chat.service;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
 
@@ -50,11 +53,7 @@ public class MemberServiceImpl implements MemberService {
 		return mb;
 	}
 
-	@Override
-	public Member findId(String m_id, String m_email) throws Exception {
-		dao.findId(m_id,m_email);
-		return null;
-	}
+	
 
 	@Override
 	public void changeInfo(Member member) throws Exception {
@@ -63,4 +62,40 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+
+
+	@Override
+	public String find_id(HttpServletResponse response, Member member) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = dao.find_id(member);
+		
+		if (id == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			return id;
+		}
+	}
+	@Override
+	public String find_id2(HttpServletResponse response, Member member) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = dao.find_id2(member);
+		
+		if (id == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			return id;
+		}
+	}
 }

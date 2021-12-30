@@ -2,6 +2,7 @@ package com.chat.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -80,6 +81,22 @@ public class MainController {
 	public String findid(Member members) {
 	//	MemberService.fidId(String m_name, String m_email);
 		return "main/findid";
+	}
+	@RequestMapping(value = "/findidAction", method =RequestMethod.POST)
+	public String findidAction(HttpServletResponse response, Model md, Member member)throws Exception {
+		
+		
+		
+		if((member.getM_name()!=null&&member.getM_tel()!=null)&&member.getM_email()==null) {
+			System.out.println("11"+member.getM_email());
+			md.addAttribute("id",MemberService.find_id(response, member));
+		
+		}else if((member.getM_name()!=null&&member.getM_email()!=null)&&member.getM_tel()==null) {
+			System.out.println("22"+member.getM_email());
+			md.addAttribute("id",MemberService.find_id2(response, member));
+		}
+		
+		return "main/findview";
 	}
 
 	@RequestMapping(value = "/findpw")

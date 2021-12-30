@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <script>
 
 
 $(document).ready(function() {
 	
-	//È®ÀÎ¹öÆ° ÀÔ·Â½Ã ½ÇÇà
+	//í™•ì¸ë²„íŠ¼ ì…ë ¥ì‹œ ì‹¤í–‰
 	$('#searchBtn').click(function() {
 		$('#background_modal').show();
 	});
@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('.close').on('click', function() {
 		$('#background_modal').hide();
 	});
-	// 3. ¸ğ´ŞÃ¢ À§µµ¿ì Å¬¸¯ ½Ã ´İ±â
+	// 3. ëª¨ë‹¬ì°½ ìœ„ë„ìš° í´ë¦­ ì‹œ ë‹«ê¸°
 	$(window).on('click', function() {
 		if (event.target == $('#background_modal').get(0)) {
             $('#background_modal').hide();
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 });
 var idV = "";
-// ¾ÆÀÌµğ °ª ¹Ş°í Ãâ·ÂÇÏ´Â ajax
+// ì•„ì´ë”” ê°’ ë°›ê³  ì¶œë ¥í•˜ëŠ” ajax
 var idSearch_click = function(){
 	$.ajax({
 		type:"POST",
@@ -35,10 +35,10 @@ var idSearch_click = function(){
 				+$('#m_name').val()+"&m_tel="+$('#m_tel').val(),
 		success:function(data){
 			if(data == 0){
-				$('#id_value').text("È¸¿ø Á¤º¸¸¦ È®ÀÎÇØÁÖ¼¼¿ä!");	
+				$('#id_value').text("íšŒì› ì •ë³´ë¥¼ í™•ì¸í•´ì£¼ì„¸ìš”!");	
 			} else {
 				$('#id_value').text(data);
-				// ¾ÆÀÌµğ°ª º°µµ·Î ÀúÀå
+				// ì•„ì´ë””ê°’ ë³„ë„ë¡œ ì €ì¥
 				idV = data;
 			}
 		}
@@ -46,7 +46,7 @@ var idSearch_click = function(){
 }
 
 
-//Ã¼Å© ¹öÆ°¿¡ µû¶ó ¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ ±â´ÉÀÌ ´Ş¶óÁø´Ù
+//ì²´í¬ ë²„íŠ¼ì— ë”°ë¼ ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ê¸°ëŠ¥ì´ ë‹¬ë¼ì§„ë‹¤
 function check(num) {
 	if (num == '1') {
 		document.getElementById("searchP").style.display = "none";
@@ -76,8 +76,8 @@ function check(num) {
 </head>
 <body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand " href="${path}/findid">¾ÆÀÌµğÃ£±â</a>
-		<a class="navbar-brand" href="${path}/findpw">ºñ¹Ğ¹øÈ£Ã£±â</a>
+		<a class="navbar-brand " href="${path}/findid">ì•„ì´ë””ì°¾ê¸°</a>
+		<a class="navbar-brand" href="${path}/findpw">ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarText" aria-controls="navbarText"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@ function check(num) {
 	
 	</nav>
 	
-<%@ include file="/WEB-INF/views/modal/userIdSearchModal.jsp" %>
+
 
 	
 	<div class="container">
@@ -97,27 +97,27 @@ function check(num) {
 				 <div class="jumbotron">
 				 	<div class="panel-heading">
 				 	<form method="POST" action="./findidAction">
-				 		<h2 style ="text-align:center; border-bottom" >¾ÆÀÌµğ Ã£±â</h2>
+				 		<h2 style ="text-align:center; border-bottom" >ì•„ì´ë”” ì°¾ê¸°</h2>
 				 		<ul style="border-bottom:2px solid #ffffff; "></ul>
 				 		<div style="margin-bottom: 10px;"
 						class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="search_1" name="find_id" onclick="check(1)" checked="checked">
-							<label class="custom-control-label font-weight-bold text-black"	for="search_1">ÈŞ´ëÆù¹øÈ£·Î Ã£±â</label>
+							<label class="custom-control-label font-weight-bold text-black"	for="search_1">íœ´ëŒ€í°ë²ˆí˜¸ë¡œ ì°¾ê¸°</label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="search_2" name="find_id" onclick="check(2)"> 
-							<label class="custom-control-label font-weight-bold text-black" for="search_2">ÀÌ¸ŞÀÏÁÖ¼Ò·Î Ã£±â</label>
+							<label class="custom-control-label font-weight-bold text-black" for="search_2">ì´ë©”ì¼ì£¼ì†Œë¡œ ì°¾ê¸°</label>
 						</div>
 				 	
 				 		<div id="searchI">
-				 		<h5>È¸¿øÁ¤º¸¿¡ µî·ÏÇÑ ÈŞ´ëÆù¹øÈ£·Î ÀÎÁõ</h5>
+				 		<h5>íšŒì›ì •ë³´ì— ë“±ë¡í•œ íœ´ëŒ€í°ë²ˆí˜¸ë¡œ ì¸ì¦</h5>
 				 		<div class="row">
 							<div class="form-group col-sm-3 col-md-3 col-lg-3" >
-								<span style="font-family :Fantasy; ">ÀÌ¸§ :</span> 
+								<span style="font-family :Fantasy; ">ì´ë¦„ :</span> 
 								
 							</div>
 							<div class="form-group col-sm-5 col-md-5 col-lg-5">
-								<input  type="email" class="form-control" id="m_name" name="m_name" placeholder="ex)±è°­ÁØ" >
+								<input  type="text" class="form-control" id="m_name" name="m_name" placeholder="ex)ê¹€ê°•ì¤€" >
 							</div>
 							<div class="form-group col-sm-4 col-md-4 col-lg-4" >
 								
@@ -127,37 +127,38 @@ function check(num) {
 				 		
 				 		<div class="row">
 							<div class="form-group col-sm-3 col-md-3 col-lg-3" >
-								<span style="font-family :Fantasy; ">¹øÈ£ÀÔ·Â:</span> 
+								<span style="font-family :Fantasy; ">ë²ˆí˜¸ì…ë ¥:</span> 
 								
 							</div>
 							<div class="form-group col-sm-5 col-md-5 col-lg-5">
-								<input  type="email" class="form-control" id="m_tel" name="m_tel" placeholder="ex)01012341234 " >
+								<input  type="text" class="form-control" id="m_tel" name="m_tel" placeholder="ex)01012341234 " >
 							</div>
 							
 				
 						</div>
 						
-						<!-- Á¦Ãâ ¹öÆ° -->
+						<!-- ì œì¶œ ë²„íŠ¼ -->
 						<div class="row">
 							<div class="col-sm-4 col-md-4 col-lg-4" ></div>
 							<div class="form-group col-sm-3 col-md-3 col-lg-3">
-								<button id="searchBtn" type="button" onclick="idSearch_click()" class="btn btn-primary btn-block">È®ÀÎ</button>
-								<a class="btn btn-danger btn-block"	href="${Path}">Ãë¼Ò</a>
+								<!--  <button id="searchBtn" type="button" onclick="idSearch_click()" class="btn btn-primary btn-block">í™•ì¸</button>-->
+								<input type="submit" class="btn btn-primary form-control" value="í™•ì¸">
+								<a class="btn btn-danger btn-block"	href="${Path}">ì·¨ì†Œ</a>
 							</div>
 						</div>
 						</div>
 						
-						
-						
+						</form>
+						<form method="POST" action="./findidAction">
 				 		<div id="searchP" style="display: none;">
-				 		<h5>È¸¿øÁ¤º¸¿¡ µî·ÏÇÑ ÀÌ¸ŞÀÏ·Î ÀÎÁõ</h5>
+				 		<h5>íšŒì›ì •ë³´ì— ë“±ë¡í•œ ì´ë©”ì¼ë¡œ ì¸ì¦</h5>
 				 		<div class="row">
 							<div class="form-group col-sm-3 col-md-3 col-lg-3" >
-								<span style="font-family :Fantasy; ">ÀÌ¸§ :</span> 
+								<span style="font-family :Fantasy; ">ì´ë¦„ :</span> 
 								
 							</div>
 							<div class="form-group col-sm-5 col-md-5 col-lg-5">
-								<input  type="email" class="form-control" id="m_name" name="m_name" placeholder="ex)±è°­ÁØ" >
+								<input  type="text" class="form-control" id="m_name" name="m_name" placeholder="ex)ê¹€ê°•ì¤€" >
 							</div>
 							<div class="form-group col-sm-4 col-md-4 col-lg-4" >
 								
@@ -167,7 +168,7 @@ function check(num) {
 				 		
 				 		<div class="row">
 							<div class="form-group col-sm-3 col-md-3 col-lg-3" >
-								<span style="font-family :Fantasy; ">ÀÌ¸ŞÀÏÀÔ·Â :</span> 
+								<span style="font-family :Fantasy; ">ì´ë©”ì¼ì…ë ¥ :</span> 
 								
 							</div>
 							<div class="form-group col-sm-5 col-md-5 col-lg-5">
@@ -175,18 +176,18 @@ function check(num) {
 							</div>
 							
 							<div class="col-sm-4 col-md-4 col-lg-4" >
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailAuthModal" >ÀÎÁõ¹Ş±â</button>
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailAuthModal" >ì¸ì¦ë°›ê¸°</button>
 							</div>
 						</div>
 						
 					
 						
-						<!-- Á¦Ãâ ¹öÆ° -->
+						<!-- ì œì¶œ ë²„íŠ¼ -->
 						<div class="row">
 							<div class="col-sm-4 col-md-4 col-lg-4" ></div>
 							<div class="form-group col-sm-3 col-md-3 col-lg-3">
-								<button id="searchBtn2" type="button" class="btn btn-primary btn-block">È®ÀÎ</button>
-								<a class="btn btn-danger btn-block"	href="${path}">Ãë¼Ò</a>
+								<input type="submit" class="btn btn-primary form-control" value="í™•ì¸">
+								<a class="btn btn-danger btn-block"	href="${path}">ì·¨ì†Œ</a>
 
 							</div>
 						</div>
@@ -202,37 +203,7 @@ function check(num) {
 		</div>
 	</div>
 				
-<!-- ÀÌ¸ŞÀÏ ÀÎÁõ ¸ğ´Ş -->
-<div id="emailAuthModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">ÀÌ¸ŞÀÏ ÀÎÁõ</h4>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-lg-8">
-						<input type="email" class="form-control" id="user_mail_modal" placeholder="ÀÌ¸ŞÀÏ">
-					</div>
-					<div class="col-lg-4">
-						<button type="button" class="btn btn-success btn-block" id="sendAuthBtn">ÀÎÁõ¹øÈ£ Àü¼Û</button>
-					</div>
-				</div>
-				<div class="row" id="authDiv" style="margin-top: 15px; display: none;">
-					<div class="col-lg-4">
-						<input type="text" class="form-control" id="auth_num" placeholder="ÀÎÁõ¹øÈ£">
-					</div>
-					<div class="col-lg-4">
-						<button type="button" class="btn btn-primary btn-block" id="authMailBtn">ÀÎÁõ</button>
-					</div>
-					<div class="col-lg-4"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- ÀÌ¸ŞÀÏ ÀÎÁõ ¸ğ´Ş Á¾·á --> 	
+
 
 
 
