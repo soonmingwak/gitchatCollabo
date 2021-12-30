@@ -54,19 +54,27 @@ public class MemberDAOImplmpl implements MemberDAO {
 		return sqlSession.selectOne(SESSION+".readMemberWithIDPW", paramMap);
 		
 		
-	//테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
+
+	}
+	
+	@Override
+	public void changeInfo(Member member) throws Exception {
 		
-		//String인자를 2개를 가져갈 수 없기때문에 파라미터 두개를 객체인 Map에 넣어서 가지고 넘긴다
-		//return sqlSession.selectOne(namespace+".readMemberWithIDPW", userid, userpw);		
+		System.out.println("member1 : "+member.getM_adr());
+		sqlSession.update(SESSION+".changeInfo",member);
 		
-		// DB로 정보를 전달하기 위해서는 sqlSeesion 객체 활용
-		// * 1개 이상의 정보를 전달할때는 객체 단위로 전달
-		// * 객체(VO) 안에 저장이 안되는 정보의 경우 Map을 사용
-		// Map은 key-value형태 : 이때 key값은 sql구문의 #{ㅇㅇㅇ} 이름과 같아야함
+		System.out.println("member2 : "+member.getM_adr());
 	}
 	@Override
-	public Member findId(String m_id, String m_pw) throws Exception {
-		
-		return null;
+	public String find_id(Member member) throws Exception {
+	
+		return sqlSession.selectOne(SESSION+".find_id",member);
 	}
+	
+	@Override
+	public String find_id2(Member member) throws Exception {
+		
+		return sqlSession.selectOne(SESSION+".find_id2",member);
+	}
+	
 }

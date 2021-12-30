@@ -47,9 +47,9 @@
                                 </div>
                               
                                 <div class="form-group">
-									<input type="submit" class="btn btn-primary form-control" value="로그인">
+									<input type="submit" class="btn btn-success form-control" value="로그인">
 								</div>
-                                <a style=" color:#ffffff" href = "${path }/join" class="btn btn-success form-control" >회원가입</a><p style="text-align:center; ">계정이 필요하신가요?</p>
+                                <a href = "${path }/join" class="btn btn-primary form-control" >회원가입</a><p style="text-align:center; ">계정이 필요하신가요?</p>
                             </div>
                             
                             <!-- csrf라는 이름으로 처리되는 csrf토큰 -->		

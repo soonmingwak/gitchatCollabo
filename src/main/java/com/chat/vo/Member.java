@@ -12,6 +12,13 @@ public class Member {
 	private String m_adr;
 	
 	public Member() {}
+	
+	public Member(String m_name, String m_tel) {
+		this.m_name = m_name;
+		this.m_tel = m_tel;
+	}
+
+	
 
 	public Member(String m_id, String m_pw, String m_name, String m_aff, String m_gender, String m_email, String m_tel,
 			String m_adr) {
