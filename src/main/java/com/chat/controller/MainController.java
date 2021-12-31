@@ -1,12 +1,12 @@
 package com.chat.controller;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -98,9 +98,16 @@ public class MainController {
 		
 		return "main/findview";
 	}
-
-	@RequestMapping(value = "/findpw")
-	public String findpw() {
+	
+	@RequestMapping(value = "/findpw", method = RequestMethod.GET)
+	public void findPwGET() throws Exception{
+		
+	}
+	
+	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
+	public String findpw(@ModelAttribute Member member, HttpServletResponse response) throws Exception {
+		
+		MemberService.findpw(response, member);
 		return "main/findpw";
 	}
 	

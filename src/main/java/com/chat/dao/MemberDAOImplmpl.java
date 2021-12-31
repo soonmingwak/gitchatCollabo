@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.chat.vo.Authmail;
 import com.chat.vo.Member;
 
 
@@ -75,6 +76,35 @@ public class MemberDAOImplmpl implements MemberDAO {
 	public String find_id2(Member member) throws Exception {
 		
 		return sqlSession.selectOne(SESSION+".find_id2",member);
+	}
+	@Override
+	public int updatepw(Member member) throws Exception {
+		
+		return sqlSession.update(SESSION+".updatepw",member);
+	}
+	@Override
+	public Integer getAuthnum(String m_email) throws Exception {
+		
+		return sqlSession.selectOne(SESSION +".getAuthnum",m_email);
+	}
+	@Override
+	public void setAuthnum(Authmail authmail) throws Exception {
+		sqlSession.insert(SESSION+".setAuthnum",authmail);
+		
+	}
+	@Override
+	public void resetAuthnum(Authmail authmail) throws Exception {
+		sqlSession.update(SESSION+".resetAuthnum",authmail);
+		
+	}
+	@Override
+	public void deleteAuthmail(String m_email) throws Exception {
+		sqlSession.delete(SESSION+".deleteAuthmail",m_email);
+		
+	}
+	@Override
+	public String idCheck(String m_email) throws Exception {
+		return sqlSession.selectOne(SESSION +".idCheck",m_email);
 	}
 	
 }

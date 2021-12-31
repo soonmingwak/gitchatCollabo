@@ -4,20 +4,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="${path}/resources/js/join.js" charset="UTF-8"></script>
 <script>
-//체크 버튼에 따라 아이디/비밀번호 기능이 달라진다
-function search_check(num) {
-	if (num == '1') {
-		document.getElementById("searchP").style.display = "none";
-		document.getElementById("searchI").style.display = "";	
-	} else {
-		document.getElementById("searchI").style.display = "none";
-		document.getElementById("searchP").style.display = "";
-	}
-}
 
 
+$(function(){
+	$("#findBtn").click(function(){
+		$.ajax({
+			url : "/main/findpw",
+			type : "POST",
+			data : {
+				m_id : $("#m_id").val(),
+				m_email : $("#m_email").val()
+			},
+			success : function(result) {
+				alert(result);
+			},
+		})
+	});
+})
 </script>
+
+
 
 <title></title>
 <meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
@@ -108,7 +116,7 @@ function search_check(num) {
 							<div class="col-sm-4 col-md-4 col-lg-4" ></div>
 							<div class="form-group col-sm-3 col-md-3 col-lg-3">
 								<!--  <button id="searchBtn" type="button" onclick="idSearch_click()" class="btn btn-primary btn-block">확인</button>-->
-								<input type="submit" class="btn btn-primary form-control" value="확인">
+								<button type="button" id="findBtn" class ="btn btn-primary form-control">찾기</button>
 								<a class="btn btn-danger btn-block"	href="${Path}">취소</a>
 							</div>
 						</div>
@@ -130,7 +138,7 @@ function search_check(num) {
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-lg-8">
-						<input type="email" class="form-control" id="user_mail_modal" placeholder="이메일" read>
+						<input type="email" class="form-control" id="user_mail_modal" placeholder="이메일" >
 					</div>
 					<div class="col-lg-4">
 						<button type="button" class="btn btn-success btn-block" id="sendAuthBtn">인증번호 전송</button>
