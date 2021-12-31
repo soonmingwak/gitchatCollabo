@@ -5,7 +5,7 @@
  <configuration>
  <typeAliases>
   <typeAlias alias="Member" type="com.chat.vo.Member"/>
-  
+  <typeAlias alias="Authmail" type="com.chat.vo.Authmail"/>
 
  
 </typeAliases>

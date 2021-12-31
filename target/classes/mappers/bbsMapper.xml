@@ -74,6 +74,45 @@
 		 m_email=#{m_email} and m_name=#{m_name}
 	</select>
 	
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatepw" >
+	UPDATE MEMBER
+	 set m_pw = #{m_pw} where m_id = #{m_id}
+	</update>
+	
+	<!-- 이메일 인증번호 불러오기 SQL -->
+	<select id="getAuthnum" resultType="int">
+		SELECT auth_num
+		FROM   AUTHMAIL
+		WHERE  m_email = #{m_email}
+	</select>
+	
+	<!-- 이메일 인증번호 저장 SQL -->
+	<insert id="setAuthnum">
+		INSERT INTO AUTHMAIL
+		VALUES (#{m_email}, #{auth_num})
+	</insert>
+	
+	<!-- 이메일 인증번호 수정 SQL -->
+	<update id="resetAuthnum">
+		UPDATE AUTHMAIL
+		SET    auth_num = #{auth_num}
+		WHERE  m_email = #{m_email}
+	</update>
+	
+	<!-- 이메일 인증번호 삭제 SQL -->
+	<delete id="deleteAuthmail">
+		DELETE FROM AUTHMAIL
+		WHERE  m_email = #{m_email}
+	</delete>
+	
+	<!-- 유저 아이디 중복체크 SQL -->
+	<select id="idCheck" resultType="string">
+		SELECT m_id
+		FROM   MEMBER
+		WHERE  m_id = #{m_id}
+	</select>
 
 </mapper>
 
