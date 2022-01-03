@@ -175,9 +175,7 @@ function check(num) {
 								<input  type="email" class="form-control" id="m_email" name="m_email" placeholder="ex)abc@abc.com" >
 							</div>
 							
-							<div class="col-sm-4 col-md-4 col-lg-4" >
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailAuthModal" >인증받기</button>
-							</div>
+							
 						</div>
 						
 					

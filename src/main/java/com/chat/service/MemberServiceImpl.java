@@ -1,6 +1,7 @@
 package com.chat.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -263,5 +264,11 @@ public class MemberServiceImpl implements MemberService {
 			System.out.println("메일발송 실패 : " + e);
 		}
 		
+	}
+
+	@Override
+	public List<Member> memberList() throws Exception {
+		
+		return dao.memberList();
 	}
 }

@@ -1,6 +1,6 @@
 package com.chat.dao;
 
-import javax.swing.tree.ExpandVetoException;
+import java.util.List;
 
 import com.chat.vo.Authmail;
 import com.chat.vo.Member;
@@ -21,4 +21,5 @@ public interface MemberDAO {
 	public void resetAuthnum(Authmail authmail) throws Exception;
 	public void deleteAuthmail(String m_email) throws Exception;
 	public String idCheck(String m_email) throws Exception;
+	public List<Member> memberList() throws Exception;
 }
