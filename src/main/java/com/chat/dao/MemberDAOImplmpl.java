@@ -1,6 +1,7 @@
 package com.chat.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -105,6 +106,11 @@ public class MemberDAOImplmpl implements MemberDAO {
 	@Override
 	public String idCheck(String m_email) throws Exception {
 		return sqlSession.selectOne(SESSION +".idCheck",m_email);
+	}
+	@Override
+	public List<Member> memberList() throws Exception {
+		
+		return sqlSession.selectList(SESSION+".memberList");
 	}
 	
 }

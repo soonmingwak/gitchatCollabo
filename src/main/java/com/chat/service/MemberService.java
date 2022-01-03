@@ -1,5 +1,7 @@
 package com.chat.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import com.chat.vo.Authmail;
@@ -18,5 +20,6 @@ public interface MemberService {
 	public int setAuthnum(String m_email) throws Exception;
 	public int checkAuthnum(Authmail authmail) throws Exception;
 	public void sendemail(Member member, String div) throws Exception;
+	public List<Member> memberList() throws Exception;
 	
 }

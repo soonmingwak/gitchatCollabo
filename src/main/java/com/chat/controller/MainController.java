@@ -1,5 +1,7 @@
 package com.chat.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -100,8 +102,8 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/findpw", method = RequestMethod.GET)
-	public void findPwGET() throws Exception{
-		
+	public String findpw() throws Exception{
+		return "main/findpw";
 	}
 	
 	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
@@ -151,6 +153,13 @@ public class MainController {
 		//session.setAttribute("member", MemberService.infoChange(member));
 		//return "redirect:/main/infochange?m_id="+member.getM_id();
 	}
+	
+	@RequestMapping(value = "/memberlist")
+	public String memberlit(Model model) throws Exception {
+		List<Member> list =MemberService.memberList();
+		model.addAttribute("list",list);
+		return "main/memberlist";
+	}
 
 	@RequestMapping(value = "/calender")
 	public String calender() {
@@ -173,9 +182,9 @@ public class MainController {
 		return "main/todo";
 	}
 
-	@RequestMapping(value = "/orgchart")
-	public String orgchart() {
-		return "main/orgchart";
+	@RequestMapping(value = "/calender2")
+	public String calender2() {
+		return "main/calender2";
 	}
 
 	@RequestMapping(value = "/chat")

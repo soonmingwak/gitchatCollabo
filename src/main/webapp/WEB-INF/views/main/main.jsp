@@ -40,13 +40,13 @@ if(id == null) response.sendRedirect("/main/chatlogin");
 	<div class="row">
 		<div class="col-2">
 			<div class="list-group">
-				<a href="${path}/main" class="list-group-item list-group-item-action active" aria-current="true"> 멤버 </a> 
+				<a href="${path}/memberlist" class="list-group-item list-group-item-action active" aria-current="true"> 멤버 </a> 
 				<a href="${path}/chat" class="list-group-item list-group-item-action ">채팅 </a> 
 				<a href="${path}/calender" class="list-group-item list-group-item-action">캘린더 </a> 
 				<a href="${path}/todo" class="list-group-item list-group-item-action">할일 </a> 
 				<a href="${path}/notice" class="list-group-item list-group-item-action">공지사항 </a> 
 				<a href="${path}/att" class="list-group-item list-group-item-action">근태관리 </a> 
-				<a href="${path}/orgchart" class="list-group-item list-group-item-action">조직도 </a>
+				<a href="${path}/calender2" class="list-group-item list-group-item-action">조직도 </a>
 			</div>
 		</div>
 	</div>
