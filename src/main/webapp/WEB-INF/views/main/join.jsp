@@ -1,12 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${path}/resources/css/bootstrap.css">
+<meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${path}/resources/css/custom.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="${path}/resources/js/bootstrap.js"></script>
+<script>
+$(document).ready(function () {
+
+	var id_check_flag =false;
+	var pw_check_flag =false;
+	
+	$('#m_pw2').change(function() {
+		
+		var m_pw  = $('#m_pw').val();
+		var m_pw2 = $('#m_pw2').val();
+		if (m_pw != m_pw2) {
+			
+			$('#diff_pw').show();
+			$('#equal_pw').hide();
+			pw_check_flag=false;
+		}
+		else {
+			$('#equal_pw').show();
+			$('#diff_pw').hide();
+			pw_check_flag=true;
+		}
+	});
+	
+	
+	$('#id_check').click(function() {
+		var m_id = $('#m_id').val();
+	
+		if(m_id==""){
+			alert('아이디를 입력하세요.');
+			return;
+		}
+	
+		$.ajax({
+		
+			type : 'GET',		
+			url  : './idCheck',	
+			data : {			
+			
+				m_id : m_id
+			},
+		
+			dataType : 'text',	
+			success : function(data) {	
+			
+				if(data == 0) {
+					alert('사용가능한 아이디입니다.');
+					$('#m_id').attr('readonly', true);
+					id_check_flag=true;
+				}
+				// 사용중인 아이디
+				else if(data == 1) {
+					alert('사용중인 아이디입니다.');
+					$('#m_id').attr('value', '');
+				}
+				// 데이터베이스 오류
+				else {
+					alert('데이터베이스 오류가 발생했습니다.');
+				}
+			},
+			error : function() {	// 통신에 실패했을 때
+				alert('중복체크 실패');
+			}
+		});
+	});
+});
+
+</script>
+
+
+
 </head>
+
+
 <body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="${path }/">회사이름</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarText" aria-controls="navbarText"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-expanded="false">
+						${m_id}<br>마이페이지 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="${path }/info">내정보</a>
+						<a class="dropdown-item" href="${path }/logout">로그아웃</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="${path}/set ">설정</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
 
 	
 	<!-- 메인 컨텐츠 -->
@@ -32,15 +133,15 @@
 						<!-- 비밀번호 입력칸 -->
 						<div class="form-group">
 				 			<span style="font-family :Fantasy;">비밀번호 :</span> 
-				 			<input type="text" class="form-control" autocomplete="off" name="m_pw" >
+				 			<input type="text" class="form-control" autocomplete="off" id="m_pw" name="m_pw" >
 						</div>
 						<!--  비밀번호 확인 -->
 						<div class="form-group">
 				 			<span style="font-family :Fantasy;">비밀번호확인 :</span> 
-				 			<input type="text" class="form-control" autocomplete="off" name="m_pw2" >
+				 			<input type="text" class="form-control" autocomplete="off"  id="m_pw2" name="m_pw2" >
 						</div>
 						<!-- 비밀번호 체크에 대한 공간 할당 -->
-						<div class="row">
+						<div class="form-group">
 							<div class="col-sm-12 col-md-12 col-lg-12">
 							<h6 id="diff_pw" class="text-danger" style="display: none;">비밀번호가 서로 다릅니다.</h6>
 							<h6 id="equal_pw" class="text-success" style="display: none;">확인되었습니다.</h6>

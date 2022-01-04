@@ -20,6 +20,6 @@ public interface MemberDAO {
 	public void setAuthnum(Authmail authmail) throws Exception;
 	public void resetAuthnum(Authmail authmail) throws Exception;
 	public void deleteAuthmail(String m_email) throws Exception;
-	public String idCheck(String m_email) throws Exception;
+	public String idCheck(String m_id) throws Exception;
 	public List<Member> memberList() throws Exception;
 }

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.chat.service.MemberService;
@@ -191,4 +192,15 @@ public class MainController {
 	public String chat() {
 		return "main/chat";
 	}
+	@RequestMapping(value ="/idCheck",method = RequestMethod.GET)
+	
+	@ResponseBody
+	public String idCheck(String m_id) throws Exception{
+		
+		int result =MemberService.idCheck(m_id);
+		
+		
+		return result+"";
+	}
+	
 }

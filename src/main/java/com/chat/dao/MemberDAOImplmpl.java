@@ -104,8 +104,8 @@ public class MemberDAOImplmpl implements MemberDAO {
 		
 	}
 	@Override
-	public String idCheck(String m_email) throws Exception {
-		return sqlSession.selectOne(SESSION +".idCheck",m_email);
+	public String idCheck(String m_id) throws Exception {
+		return sqlSession.selectOne(SESSION +".idCheck",m_id);
 	}
 	@Override
 	public List<Member> memberList() throws Exception {
