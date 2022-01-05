@@ -271,4 +271,15 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.memberList();
 	}
+
+	@Override
+	public int idCheck(String m_id) throws Exception {
+	int result =0;
+		
+		if(dao.idCheck(m_id)!=null) result =1;
+		
+		
+		
+		return result;
+	}
 }

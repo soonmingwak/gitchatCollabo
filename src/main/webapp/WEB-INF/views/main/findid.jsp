@@ -76,6 +76,7 @@ function check(num) {
 </head>
 <body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="${path}">회사이름</a>
 		<a class="navbar-brand " href="${path}/findid">아이디찾기</a>
 		<a class="navbar-brand" href="${path}/findpw">비밀번호찾기</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"

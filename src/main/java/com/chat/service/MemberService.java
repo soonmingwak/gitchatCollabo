@@ -21,5 +21,6 @@ public interface MemberService {
 	public int checkAuthnum(Authmail authmail) throws Exception;
 	public void sendemail(Member member, String div) throws Exception;
 	public List<Member> memberList() throws Exception;
+	public int idCheck(String m_id) throws Exception;
 	
 }
