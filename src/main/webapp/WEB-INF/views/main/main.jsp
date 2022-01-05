@@ -46,7 +46,7 @@ if(id == null) response.sendRedirect("/main/chatlogin");
 				<a href="${path}/todo" class="list-group-item list-group-item-action">할일 </a> 
 				<a href="${path}/notice" class="list-group-item list-group-item-action">공지사항 </a> 
 				<a href="${path}/att" class="list-group-item list-group-item-action">근태관리 </a> 
-				<a href="${path}/calender2" class="list-group-item list-group-item-action">조직도 </a>
+				<a href="${path}/calendar2" class="list-group-item list-group-item-action">캘린더 </a>
 			</div>
 		</div>
 	</div>

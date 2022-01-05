@@ -6,74 +6,70 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DateDate {
+
 	String year = "";
 	String month = "";
 	String date = "";
 	String value = "";
-	//Ãß°¡µÈ ºÎºĞ
-	String db_startDate = "";
-	String db_endDate = "";	
-	Schedule[] schedule_data_arr = new Schedule[4];
+	//ìŠ¤ì¼€ì¥´ ì¶”ê°€ì‹œ ì•„ë˜ì²˜ëŸ¼ 
+	//		1. ë³€ìˆ˜ ì¶”ê°€
+	//		2. getter/setter ì¶”ê°€
+	//		3. ìƒì„±ì ì¶”ê°€
+	//				í•˜ì—¬ ì‚¬ìš©í•˜ë©´ ë³´ë‹¤ í¸ë¦¬í•˜ê³  ê¹¨ë—í•˜ê²Œ ì½”ë“œë¥¼ ë§Œë“¤ ìˆ˜ ìˆë‹¤.
+	String schedule = "";
+	String schedule_detail = "";
 
 	public String getYear() {
 		return year;
 	}
+
 	public void setYear(String year) {
 		this.year = year;
 	}
 
-	
 	public String getMonth() {
 		return month;
 	}
+
 	public void setMonth(String month) {
 		this.month = month;
 	}
 
-	
 	public String getDate() {
 		return date;
 	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
 
-	
 	public String getValue() {
 		return value;
 	}
+
 	public void setValue(String value) {
 		this.value = value;
 	}
 
-	//Ãß°¡µÈ ºÎºĞ
-	public String getDb_startDate() {
-		return db_startDate;
-	}
-	public void setDb_startDate(String db_startDate) {
-		this.db_startDate = db_startDate;
+	public String getSchedule() {
+		return schedule;
 	}
 
-	
-	public String getDb_endDate() {
-		return db_endDate;
-	}
-	public void setDb_endDate(String db_endDate) {
-		this.db_endDate = db_endDate;
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
 	}
 
-	
-	public Schedule[] getSchedule_data_arr() {
-		return schedule_data_arr;
+	public String getSchedule_detail() {
+		return schedule_detail;
 	}
-	public void setSchedule_data_arr(Schedule[] schedule_data_arr) {
-		this.schedule_data_arr = schedule_data_arr;
+
+	public void setSchedule_detail(String schedule_detail) {
+		this.schedule_detail = schedule_detail;
 	}
-	
-	
-	// ³¯Â¥¿¡ °ü·ÃµÈ ´Ş·ÂÁ¤º¸¸¦ °¡Áö´Â ¸Ş¼­µå
+
+	// ë‚ ì§œì— ê´€ë ¨ëœ ë‹¬ë ¥ì •ë³´ë¥¼ ê°€ì§€ëŠ” ë©”ì„œë“œ
 	public Map<String, Integer> today_info(DateDate dateData) {
-		// ³¯Â¥ Ä¶¸°´õ ÇÔ¼ö¿¡ »ğÀÔ.
+		// ë‚ ì§œ ìº˜ë¦°ë” í•¨ìˆ˜ì— ì‚½ì….
 		Map<String, Integer> today_Data = new HashMap<String, Integer>();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(dateData.getYear()), Integer.parseInt(dateData.getMonth()), 1);
@@ -102,9 +98,8 @@ public class DateDate {
 		
 		Map<String, Integer> before_after_calendar = before_after_calendar(search_year,search_month);
 		
-		//³¯Â¥ °ü·Ã
-		System.out.println("search_month : " + search_month);
-		// Ä¶¸°´õ ÇÔ¼ö end
+		
+		// ìº˜ë¦°ë” í•¨ìˆ˜ end
 		today_Data.put("start", start);
 		today_Data.put("startDay", startDay);
 		today_Data.put("endDay", endDay);
@@ -115,14 +110,10 @@ public class DateDate {
 		today_Data.put("before_month", before_after_calendar.get("before_month"));
 		today_Data.put("after_year", before_after_calendar.get("after_year"));
 		today_Data.put("after_month", before_after_calendar.get("after_month"));
-		
-		
-		this.db_startDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(startDay);
-		this.db_endDate = String.valueOf(search_year)+"-"+String.valueOf(search_month+1)+"-"+String.valueOf(endDay);
 		return today_Data;
 	}
 	
-	//ÀÌÀü´Ş ´ÙÀ½´Ş ¹× ÀÌÀü³âµµ ´ÙÀ½³âµµ
+	//ì´ì „ë‹¬ ë‹¤ìŒë‹¬ ë° ì´ì „ë…„ë„ ë‹¤ìŒë…„ë„
 	private Map<String, Integer> before_after_calendar(int search_year, int search_month){
 		Map<String, Integer> before_after_data = new HashMap<String, Integer>();
 		int before_year = search_year;
@@ -148,22 +139,20 @@ public class DateDate {
 		return before_after_data;
 	}
 	
-	// ½ºÄÉÁÙ »ç¿ë½Ã »ç¿ëµÉ »ı¼ºÀÚ
-	
-	public DateDate(String year, String month, String date, String value, Schedule[] schedule_data_arr) {
-		if ((month != null && month != "") && (date != null && date != "")) {
-			this.year = year;
-			this.month = month;
-			this.date = date;
-			this.value = value;
-			this.schedule_data_arr = schedule_data_arr;
-		}
+	// ìŠ¤ì¼€ì¤„ ì‚¬ìš©ì‹œ ì‚¬ìš©ë  ìƒì„±ì
+	public DateDate(String year, String month, String date, String value, String schedule, String schedule_detail) {
+
+		this.year = year;
+		this.month = month;
+		this.date = date;
+		this.value = value;
+		this.schedule = schedule;
+		this.schedule_detail = schedule_detail;
 
 	}
 
-	// ´Ş·Â¸¸ »ç¿ë½Ã »ç¿ëµÉ »ı¼ºÀÚ
-	/*
-	public DateData(String year, String month, String date, String value) {
+	// ë‹¬ë ¥ë§Œ ì‚¬ìš©ì‹œ ì‚¬ìš©ë  ìƒì„±ì
+	public DateDate(String year, String month, String date, String value) {
 		if ((month != null && month != "") && (date != null && date != "")) {
 			this.year = year;
 			this.month = month;
@@ -171,7 +160,7 @@ public class DateDate {
 			this.value = value;
 		}
 	}
-*/
+
 	public DateDate() {
 	}
 
@@ -179,5 +168,5 @@ public class DateDate {
 	public String toString() {
 		return "DateData [year=" + year + ", month=" + month + ", date=" + date + ", value=" + value + "]";
 	}
-		
+
 }
